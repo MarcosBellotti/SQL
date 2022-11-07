@@ -26,8 +26,9 @@ namespace Formulario
 
         private void cmbConsultas_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dgvDatos.DataSource = datosABuscar.Consulta(cmbConsultas.Text);
-            //podemos hacer un cmb con lo que queremos buscar y se busca la vista en SQL
+            //según el seleccionado en el cmb guaramos un string que sea select * from *VISTA*
+            string vista = $"select * from {cmbConsultas.Text}";
+            dgvDatos.DataSource = datosABuscar.Consulta(vista);           
         }
     }
 }
